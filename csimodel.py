@@ -308,6 +308,10 @@ if __name__ == "__main__":
     y_pred = model.predict(x_valid)
 
     from sklearn.metrics import confusion_matrix
+    import matplotlib.pyplot as plt
+    from sklearn.metrics import plot_confusion_matrix
     print(confusion_matrix(np.argmax(y_valid, axis=1), np.argmax(y_pred, axis=1)))
-
+    cm=confusion_matrix(np.argmax(y_valid, axis=1), np.argmax(y_pred, axis=1))
+plot_confusion_matrix(cm, y_valid, y_pred)
+plt.show()
 #%%
