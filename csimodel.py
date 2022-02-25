@@ -311,7 +311,17 @@ if __name__ == "__main__":
     import matplotlib.pyplot as plt
     from sklearn.metrics import plot_confusion_matrix
     print(confusion_matrix(np.argmax(y_valid, axis=1), np.argmax(y_pred, axis=1)))
-    cm=confusion_matrix(np.argmax(y_valid, axis=1), np.argmax(y_pred, axis=1))
-plot_confusion_matrix(cm, y_valid, y_pred)
-plt.show()
+
+    import seaborn as sns
+    ax = sns.heatmap(confusion_matrix(np.argmax(y_valid, axis=1), np.argmax(y_pred, axis=1)), annot=True, cmap='Blues')
+    ax.set_title('Seaborn Confusion Matrix with labels\n\n');
+    ax.set_xlabel('\nPredicted Values')
+    ax.set_ylabel('Actual Values ');
+
+## Ticket labels - List must be in alphabetical order
+    ax.xaxis.set_ticklabels(['False','True'])
+    ax.yaxis.set_ticklabels(['False','True'])
+
+## Display the visualization of the Confusion Matrix.
+    plt.show()
 #%%
