@@ -1,7 +1,7 @@
 """
 The Codes in this file are used to classify Human Activity using Channel State Information. 
 The deep learning architecture used here is Bidirectional LSTM stacked with One Attention Layer.
-Author: https://github.com/ludlows
+Author: https://github.com/amakelany
 2019-12
 """
 import numpy as np 
@@ -163,7 +163,6 @@ class AttenLayer(tf.keras.layers.Layer):
     Args:
         num_state :  number of hidden Attention state
     
-    2019-12, https://github.com/ludlows
     """
     def __init__(self, num_state, **kw):
         super(AttenLayer, self).__init__(**kw)
@@ -195,7 +194,7 @@ class CSIModelConfig:
     Using CSI (Channel State Information)
     Specifically, the author here wants to classify Human Activity using Channel State Information. 
     The deep learning architecture used here is Bidirectional LSTM stacked with One Attention Layer.
-       2019-12, https://github.com/ludlows
+       
     Args:
         win_len   :  integer (1000 default) window length for batching sequence
         step      :  integer (200  default) sliding window by this step
@@ -239,8 +238,6 @@ class CSIModelConfig:
             numpy_list.append(x[i])
             numpy_list.append(y[i])
         return tuple(numpy_list)
-
-
     
     def build_model(self, n_unit_lstm=200, n_unit_atten=400):
         """
@@ -272,7 +269,7 @@ class CSIModelConfig:
 if __name__ == "__main__":
     import sys
     if len(sys.argv) != 2:
-        print("Error! Correct Command: python3 csimodel.py Dataset_folder_path")
+        print("Start")
     raw_data_foler = 2
 
     # preprocessing
